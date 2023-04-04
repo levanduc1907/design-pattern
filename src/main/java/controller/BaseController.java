@@ -18,6 +18,9 @@ public class BaseController {
      * @return CartMedia or null
      */
     public CartItem checkMediaInCart(Media media){
+    	/**
+    	 * Common coupling liên quan đến cartInstance của SessionInformation
+    	 */
         return SessionInformation.cartInstance.checkMediaInCart(media);
     }
 
@@ -26,6 +29,9 @@ public class BaseController {
      * @return List[CartMedia]
      */
     public List getListCartMedia(){
+    	/**
+    	 * Common coupling liên quan đến cartInstance của SessionInformation
+    	 */
         return SessionInformation.cartInstance.getListMedia();
     }
 }

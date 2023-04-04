@@ -26,6 +26,9 @@ public class Order {
 
     public Order(Cart cart) {
         List<OrderItem> orderItems = new ArrayList<>();
+        /**
+    	 * Common coupling liên quan đến cartInstance của SessionInformation
+    	 */
         for (Object object : SessionInformation.cartInstance.getListMedia()) {
             CartItem cartItem = (CartItem) object;
             OrderItem orderItem = new OrderItem(cartItem.getMedia(),

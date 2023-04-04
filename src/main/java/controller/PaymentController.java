@@ -104,6 +104,9 @@ public class PaymentController extends BaseController {
 	}
 
 	public void emptyCart(){
+		/**
+    	 * Common coupling liên quan đến cartInstance của SessionInformation
+    	 */
         SessionInformation.cartInstance.emptyCart();
     }
 }

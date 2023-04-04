@@ -33,6 +33,9 @@ public class PlaceOrderController extends BaseController {
      * @throws SQLException
      */
     public void placeOrder() throws SQLException {
+    	/**
+    	 * Common coupling liên quan đến cartInstance của SessionInformation
+    	 */
         SessionInformation.cartInstance.checkAvailabilityOfProduct();
     }
 
@@ -42,6 +45,9 @@ public class PlaceOrderController extends BaseController {
      * @throws SQLException
      */
     public Order createOrder() throws SQLException {
+    	/**
+    	 * Common coupling liên quan đến cartInstance của SessionInformation
+    	 */
         return new Order(SessionInformation.cartInstance);
     }
 

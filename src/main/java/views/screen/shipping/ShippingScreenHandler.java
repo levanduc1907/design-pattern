@@ -68,7 +68,13 @@ public class ShippingScreenHandler extends BaseScreenHandler {
 
 	protected void setupData(Object dto) throws Exception {
 		this.order = (Order) dto;
+		/**
+    	 * Common coupling liên quan đến PROVINCES của ShippingConfigs
+    	 */
 		this.province.getItems().addAll(ShippingConfigs.PROVINCES);
+		/**
+    	 * Common coupling liên quan đến RUSH_SUPPORT_PROVINCES_INDEX của ShippingConfigs
+    	 */
 		this.province.getSelectionModel().select(ShippingConfigs.RUSH_SUPPORT_PROVINCES_INDEX[0]);
 	}
 
