@@ -65,6 +65,9 @@ public class MyMap extends LinkedHashMap<String, Object> {
 	public static Map<String, Object> toMyMap(Object obj) throws IllegalArgumentException, IllegalAccessException {
 		Map<String, Object> map = new MyMap();
 		List<Field> fields = new ArrayList<>();
+		/**
+		 * Content coupling
+		 */
 		fields.addAll(Arrays.asList(obj.getClass().getDeclaredFields()));
 		fields.addAll(Arrays.asList(obj.getClass().getSuperclass().getDeclaredFields()));
 

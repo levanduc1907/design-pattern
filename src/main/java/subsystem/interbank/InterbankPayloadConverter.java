@@ -68,6 +68,9 @@ public class InterbankPayloadConverter {
                 Integer.parseInt((String) transaction.get("amount")),
                 (String) transaction.get("createdAt"));
 
+        /**
+         * Control coupling
+         */
         switch (trans.getErrorCode()) {
             case "00":
                 break;

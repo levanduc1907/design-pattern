@@ -12,6 +12,7 @@ public class CartItem {
 
     }
 
+    // Stamp coupling: Truyền vào đối tượng lớp Cart nhưng không sử dụng
     public CartItem(Media media, Cart cart, int quantity, int price) {
         this.media = media;
         this.quantity = quantity;

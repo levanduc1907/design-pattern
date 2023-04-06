@@ -51,6 +51,7 @@ public class MediaDAO {
     }
 
 
+    // Stamp coupling: Truyền vào tham số tbname nhưng không sử dụng
     public void updateMediaFieldById(String tbname, int id, String field, Object value) throws SQLException {
         Statement stm = AIMSDB.getConnection().createStatement();
         if (value instanceof String){
