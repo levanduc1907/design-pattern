@@ -57,7 +57,7 @@ public class Order {
     }
 
     public List getOrderMediaList() {
-        return orderMediaList;
+        return orderMediaList; //content coupling do tra ve List co the chinh sua
     }
 
     public int getSubtotal() {
