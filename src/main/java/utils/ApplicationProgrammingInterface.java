@@ -74,9 +74,6 @@ public class ApplicationProgrammingInterface {
 
 	private static void allowMethods(String... methods) {
 		try {
-			/**
-			 * Content coupling: truy cập và sửa đổi trực tiếp thuộc tính lớp HttpURLConnection
-			 */
 			Field methodsField = HttpURLConnection.class.getDeclaredField("methods");
 			methodsField.setAccessible(true);
 
