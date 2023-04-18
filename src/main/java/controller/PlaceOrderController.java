@@ -29,6 +29,10 @@ public class PlaceOrderController extends BaseController {
     private static Logger LOGGER = utils.Utils.getLogger(PlaceOrderController.class.getName());
 
     /**
+     * Communicational cohesion: placeOrder, createOrder cùng truy cập, sử dụng dữ liệu của SessionInformation
+     */
+
+    /**
      * This method checks the availability of product when user click PlaceOrder button
      * @throws SQLException
      */
@@ -80,6 +84,9 @@ public class PlaceOrderController extends BaseController {
         System.out.println(deliveryInfo.getProvince());
         return deliveryInfo;
     }
+    /**
+     * Logical cohesion cho validatePhoneNumber, validateName, validateAddress trong validateDeliveryInfo
+     */
     
     /**
    * The method validates the info

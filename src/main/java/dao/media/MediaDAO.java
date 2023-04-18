@@ -13,6 +13,9 @@ import java.util.List;
  * @author
  */
 public class MediaDAO {
+    /**
+     * Functional cohesion: Các phương thức getAllMedia, getMediaById, updateMediaFieldById cùng cung cấp chức năng để thao tác trên đối tượng Media
+     */
 
     public List getAllMedia() throws SQLException {
         Statement stm = AIMSDB.getConnection().createStatement();

@@ -11,6 +11,10 @@ import entity.cart.Cart;
 public class ViewCartController extends BaseController{
     
     /**
+     * Communicational cohesion: placeOrder, createOrder cùng truy cập, sử dụng dữ liệu của SessionInformation
+     */
+
+    /**
      * This method checks the available products in Cart
      * @throws SQLException
      */

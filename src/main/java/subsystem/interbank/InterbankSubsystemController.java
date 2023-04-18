@@ -13,6 +13,9 @@ public class InterbankSubsystemController {
 		return null;
 	}
 
+    /**
+	 * Sequential Cohesion: Đầu ra của một phương thức dùng làm đầu vào của phương thức khác
+	 */
 	public PaymentTransaction payOrder(CreditCard card, int amount, String contents) {
 		String requestPayload = interbankPayloadConverter.convertToRequestPayload(card, amount, contents);
 		String responseText = interbankBoundary.query(InterbankConfigs.PROCESS_TRANSACTION_URL, requestPayload);

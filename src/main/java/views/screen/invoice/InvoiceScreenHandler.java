@@ -60,6 +60,9 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 	public InvoiceScreenHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
 		super(stage, screenPath);
 		try {
+			/**
+             * Temporal cohesion
+             */
 			setupData(invoice);
 			setupFunctionality();
 		} catch (IOException ex) {

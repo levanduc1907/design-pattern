@@ -73,6 +73,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
         super(stage, screenPath);
         try {
+            /**
+             * Temporal cohesion
+             */
             setupData(null);
             setupFunctionality();
         } catch (IOException ex) {

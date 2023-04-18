@@ -96,6 +96,9 @@ public class CartScreenHandler extends BaseScreenHandler {
 	}
 
 	public void requestToViewCart(BaseScreenHandler prevScreen) throws SQLException {
+		/**
+		 * Temporal cohesion
+		 */
 		setPreviousScreen(prevScreen);
 		setScreenTitle("Cart Screen");
 		getBController().checkAvailabilityOfProduct();

@@ -55,6 +55,9 @@ public class ShippingScreenHandler extends BaseScreenHandler {
 	public ShippingScreenHandler(Stage stage, String screenPath, Order order) throws IOException {
 		super(stage, screenPath);
 		try {
+			/**
+             * Temporal cohesion
+             */
 			setupData(order);
 			setupFunctionality();
 		} catch (IOException ex) {

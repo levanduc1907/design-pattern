@@ -27,6 +27,9 @@ public class IntroScreenHandler extends BaseScreenHandler {
         super(stage, screenPath);
 
         try {
+            /**
+             * Temporal cohesion
+             */
             setupData(null);
             setupFunctionality();
         } catch (IOException ex) {

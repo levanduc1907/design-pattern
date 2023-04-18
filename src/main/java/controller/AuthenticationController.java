@@ -29,6 +29,9 @@ public class AuthenticationController extends BaseController {
         }
     }
 
+    /**
+     * Communicational cohesion: Các phương thức getMainUser, login, logout cùng truy cập, sử dụng chung data của lớp SessionInformation
+     */
     public User getMainUser() throws ExpiredSessionException {
     	/**
     	 * Common coupling liên quan đến mainUser, expiredTime của SessionInformation

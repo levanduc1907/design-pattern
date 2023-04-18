@@ -26,6 +26,9 @@ public class ResultScreenHandler extends BaseScreenHandler {
 	public ResultScreenHandler(Stage stage, String screenPath, Map<String, String> response) throws IOException {
 		super(stage, screenPath);
 		try {
+			/**
+             * Temporal cohesion
+             */
 			setupData(response);
 			setupFunctionality();
 		} catch (IOException ex) {

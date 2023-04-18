@@ -109,6 +109,9 @@ public class InterbankPayloadConverter {
     }
 
     /**
+     * Coincidental cohesion: phương thức getToday không liên quan với chức năng của lớp InterbankPayloadConverter
+     */
+    /**
      * Return a {@link String String} that represents the current time in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @author hieudm

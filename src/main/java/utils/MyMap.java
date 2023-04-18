@@ -90,6 +90,9 @@ public class MyMap extends LinkedHashMap<String, Object> {
 	private static int offset = 0; // to trace the current index when calling a function
 
 	/**
+	 * Communicational cohesion: toMyMap, getNextTerm cùng hoạt động trên dữ liệu là biến offset
+	 */
+	/**
 	 * Return a {@link String String} that represents the term in between
 	 * 2 double quote.
 	 * 
