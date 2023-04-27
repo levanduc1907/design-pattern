@@ -24,7 +24,7 @@ public class Cart {
     }
 
     public List getListMedia(){
-        return lstCartItem;
+        return lstCartItem;//content coupling do tra ve List co the chinh sua
     }
 
     public void emptyCart(){
