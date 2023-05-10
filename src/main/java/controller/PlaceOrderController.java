@@ -88,6 +88,10 @@ public class PlaceOrderController extends BaseController {
         else throw new InvalidDeliveryInfoException();
     }
     
+    /**
+     * Vi phạm nguyên tắc SOLID: Trong tương lai, khi mà phát sinh cách thức xác thực thông tin vận chuyển mới: qua mã đơn,
+     * hay thay đổi nội dung xác thực số điện thoại, tên, địa chỉ thì lớp PlaceOrderController cần thay đổi. Mà cách thức xác thực thế nào do client xác định
+     */
     public boolean validatePhoneNumber(String phoneNumber) {
         if (phoneNumber.length() != 10) return false;
         if (!phoneNumber.startsWith("0")) return false;

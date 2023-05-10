@@ -53,6 +53,14 @@ public class AuthenticationController extends BaseController {
     }
 
     /**
+     * Trong tương lai, khi muốn sử dụng một thuật toán khác để mã hóa mật khẩu
+     * thì sẽ cần sửa đổi lớp controller
+     * => Vi phạm nguyên tắc mở đóng.
+     * => Giải pháp: Tạo ra một lớp trừu tượng cho các thuật toán mã hóa. Các lớp kế thừa sẽ thực thi thuật toán
+     * mã hóa cụ thể
+     */
+
+    /**
      * Return a {@link String String} that represents the cipher text
      * encrypted by md5 algorithm.
      *

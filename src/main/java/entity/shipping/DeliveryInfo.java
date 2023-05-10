@@ -21,6 +21,11 @@ public class DeliveryInfo {
         this.distanceCalculator = distanceCalculator;
     }
 
+    /**
+     * Tương lai khi thay đổi hình thức tính phí: áp dụng cách tính phí khác nhau cho những đối tượng khác nhau
+     * thì sẽ cần sửa đổi nội dung phương thức calculateShippingFee
+     * => Vi phạm OCP
+     */
     public int calculateShippingFee(Order order) {
         int distance = distanceCalculator.calculateDistance(address, province);
         return (int) (distance * 1.2);
