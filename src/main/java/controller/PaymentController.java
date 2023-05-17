@@ -23,6 +23,10 @@ import subsystem.InterbankSubsystem;
  */
 public class PaymentController extends BaseController {
 
+/**
+ * Vi phạm OCP: Lớp PaymentController phụ thuộc trực tiếp đối tượng lớp CreditCard, tức là chỉ hỗ trợ thanh toán bằng thẻ tín dụng.
+ * Trong tương lai, khi có nhu cầu thêm phương thức thanh toán mới, sử dụng thẻ nội địa(DomesticCard)=> Sẽ phải sửa đổi PaymentController
+ */
 	/**
 	 * Represent the card used for payment
 	 */

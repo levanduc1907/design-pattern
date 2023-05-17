@@ -3,6 +3,11 @@ package entity.shipping;
 import entity.order.Order;
 import org.example.DistanceCalculator;
 
+/**
+ * Vi phạm OCP: Lớp DeliveryInfo đang phụ thuộc trực tiếp vào lớp DistanceCalculator.
+ * Trong tương lai, khi muốn thay đổi cách tính khoảng cách, sử dụng thư viện mới (all-distance-api.jar có interface gần giống với distance-api.jar)
+ * thì lớp này bắt buộc phải sửa đổi.
+ */
 public class DeliveryInfo {
 
     protected String name;
@@ -21,11 +26,9 @@ public class DeliveryInfo {
         this.distanceCalculator = distanceCalculator;
     }
 
-    /**
-     * Tương lai khi thay đổi hình thức tính phí: áp dụng cách tính phí khác nhau cho những đối tượng khác nhau
-     * thì sẽ cần sửa đổi nội dung phương thức calculateShippingFee
-     * => Vi phạm OCP
-     */
+/**
+ * Vi phạm OCP: Trong tương lai, khi muốn thay đổi công thức tính phí vận chuyển thì sẽ phải sửa đổi trực tiếp nội dung phương thức calculateShippingFee
+ */
     public int calculateShippingFee(Order order) {
         int distance = distanceCalculator.calculateDistance(address, province);
         return (int) (distance * 1.2);

@@ -54,6 +54,11 @@ public class PlaceOrderController extends BaseController {
         return new Invoice(order);
     }
 
+/**
+ * Vi phạm OCP: Phương thức processDeliveryInfo đang phụ thuộc trực tiếp vào đối tượng lớp DistanceCalculator.
+ * Trong tương lai, khi muốn thay đổi cách tính khoảng cách, sử dụng thư viện mới (all-distance-api.jar có interface gần giống với distance-api.jar)
+ * thì phương thức này bắt buộc phải sửa đổi.
+ */
     /**
      * This method takes responsibility for processing the shipping info from user
      * @param info
@@ -88,10 +93,6 @@ public class PlaceOrderController extends BaseController {
         else throw new InvalidDeliveryInfoException();
     }
     
-    /**
-     * Vi phạm nguyên tắc SOLID: Trong tương lai, khi mà phát sinh cách thức xác thực thông tin vận chuyển mới: qua mã đơn,
-     * hay thay đổi nội dung xác thực số điện thoại, tên, địa chỉ thì lớp PlaceOrderController cần thay đổi. Mà cách thức xác thực thế nào do client xác định
-     */
     public boolean validatePhoneNumber(String phoneNumber) {
         if (phoneNumber.length() != 10) return false;
         if (!phoneNumber.startsWith("0")) return false;
