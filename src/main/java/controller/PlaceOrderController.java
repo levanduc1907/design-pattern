@@ -18,6 +18,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * Vi phạm SRP: Lớp PlaceOrderController đang có nhiều hơn một trách nhiệm: vừa xử lý đơn đặt hàng, vừa xử lý hóa đơn,
+ * vừa xử lý thông tin vận chuyển. Trong tương lai, khi mà cách tính phí thông tin vận chuyển, cách xác thực thông tin
+ * vận chuyển thay đổi hay bổ sung thêm chức năng gửi hóa đơn qua email,... thì lớp PlaceOrderController phải sửa đổi
+ * => Lớp PlaceOrderController đang có nhiều hơn một lý do để thay đổi
+ */
+/**
  * This class controls the flow of place order usecase in our AIMS project
  * @author nguyenlm
  */
@@ -54,11 +60,6 @@ public class PlaceOrderController extends BaseController {
         return new Invoice(order);
     }
 
-/**
- * Vi phạm OCP: Phương thức processDeliveryInfo đang phụ thuộc trực tiếp vào đối tượng lớp DistanceCalculator.
- * Trong tương lai, khi muốn thay đổi cách tính khoảng cách, sử dụng thư viện mới (all-distance-api.jar có interface gần giống với distance-api.jar)
- * thì phương thức này bắt buộc phải sửa đổi.
- */
     /**
      * This method takes responsibility for processing the shipping info from user
      * @param info

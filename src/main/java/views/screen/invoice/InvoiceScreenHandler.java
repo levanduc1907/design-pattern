@@ -56,7 +56,11 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 	private VBox vboxItems;
 
 	private Invoice invoice;
-
+/**
+ * Vi phạm OCP: Trong tương lai, khi thay đổi yêu cầu khi load giao diện (thay vì hiển thị thông báo lỗi trên màn hình popup
+ * thì sẽ hiển thị trực tiếp lỗi trên phía trên cùng của các trang) sẽ cần sửa đổi trực tiếp cách xử lý lỗi load
+ * trong constructor của lớp
+ */
 	public InvoiceScreenHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
 		super(stage, screenPath);
 		try {

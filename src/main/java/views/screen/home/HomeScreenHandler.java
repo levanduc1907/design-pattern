@@ -35,7 +35,6 @@ import views.screen.ViewsConfig;
 import views.screen.cart.CartScreenHandler;
 import views.screen.popup.PopupScreen;
 
-
 public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
     public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
@@ -70,6 +69,11 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
     private List homeItems;
     private AuthenticationController authenticationController;
 
+/**
+ * Vi phạm OCP: Trong tương lai, khi thay đổi yêu cầu khi load giao diện (thay vì hiển thị thông báo lỗi trên màn hình popup
+ * thì sẽ hiển thị trực tiếp lỗi trên phía trên cùng của các trang) sẽ cần sửa đổi trực tiếp cách xử lý lỗi load
+ * trong constructor của lớp
+ */
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
         super(stage, screenPath);
         try {

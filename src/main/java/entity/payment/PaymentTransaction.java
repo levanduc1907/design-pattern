@@ -1,5 +1,9 @@
 package entity.payment;
 
+/**
+ * Vi phạm DIP, OCP: Lớp PaymentTransaction phụ thuộc trực tiếp lớp CreditCard. Trong tương lai, phát sinh thêm hình
+ * thức thanh toán mới (sử dụng thẻ nội địa) thì lớp PaymentTransaction cũng cần sửa đổi
+ */
 public class PaymentTransaction {
 	private String errorCode;
 	private CreditCard card;
