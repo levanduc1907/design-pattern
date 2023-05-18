@@ -43,7 +43,11 @@ public class LoginScreenHandler extends BaseScreenHandler{
 
     @FXML
     private PasswordField password;
-
+/**
+ * Vi phạm OCP: Trong tương lai, khi thay đổi yêu cầu khi load giao diện (thay vì hiển thị thông báo lỗi trên màn hình popup
+ * thì sẽ hiển thị trực tiếp lỗi trên phía trên cùng của các trang) sẽ cần sửa đổi trực tiếp cách xử lý lỗi load
+ * trong constructor của lớp
+ */
     public LoginScreenHandler(Stage stage, String screenPath) throws IOException{
         super(stage, screenPath);
         try {

@@ -12,7 +12,11 @@ import java.util.Date;
  * @author
  */
 public class DVDDAO extends MediaDAO {
-
+/**
+ * Vi phạm LSP: Khi không tìm thấy Media nào có id cho trước, thay vì trả về null như hành vi getMediaById trong lớp cha
+ * MediaDAO thì phương thức getMediaById lại tung ra một ngoại lệ
+ * => Hành vi của lớp cha đã bị sửa đổi để không hoạt động trong trường hợp không tìm thấy
+ */
     @Override
     public Media getMediaById(int id) throws SQLException {
         String sql = "SELECT * FROM "+

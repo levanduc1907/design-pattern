@@ -4,7 +4,7 @@ import entity.order.Order;
 import org.example.DistanceCalculator;
 
 /**
- * Vi phạm OCP: Lớp DeliveryInfo đang phụ thuộc trực tiếp vào lớp DistanceCalculator.
+ * Vi phạm OCP, DIP: Lớp DeliveryInfo đang phụ thuộc trực tiếp vào lớp DistanceCalculator.
  * Trong tương lai, khi muốn thay đổi cách tính khoảng cách, sử dụng thư viện mới (all-distance-api.jar có interface gần giống với distance-api.jar)
  * thì lớp này bắt buộc phải sửa đổi.
  */

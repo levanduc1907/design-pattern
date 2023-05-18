@@ -51,7 +51,11 @@ public class ShippingScreenHandler extends BaseScreenHandler {
 	private ComboBox<String> province;
 
 	private Order order;
-
+/**
+ * Vi phạm OCP: Trong tương lai, khi thay đổi yêu cầu khi load giao diện (thay vì hiển thị thông báo lỗi trên màn hình popup
+ * thì sẽ hiển thị trực tiếp lỗi trên phía trên cùng của các trang) sẽ cần sửa đổi trực tiếp cách xử lý lỗi load
+ * trong constructor của lớp
+ */
 	public ShippingScreenHandler(Stage stage, String screenPath, Order order) throws IOException {
 		super(stage, screenPath);
 		try {
