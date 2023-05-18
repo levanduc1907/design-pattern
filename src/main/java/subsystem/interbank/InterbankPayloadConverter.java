@@ -17,6 +17,7 @@ public class InterbankPayloadConverter {
 
     /**
      * Convert from native entity into interbank required format
+     * 
      * @param card
      * @param amount
      * @param contents
@@ -24,7 +25,9 @@ public class InterbankPayloadConverter {
      */
 
     /**
-	 * Vi phạm OCP: Trong tương lai, nếu có thêm các phương thức thanh toán khác ngoài Credit Card thì phải thay đổi trực tiếp mã nguồn, vì phương thức này chỉ dành có Credit Card
+     * Vi phạm OCP: Trong tương lai, nếu có thêm các phương thức thanh toán khác
+     * ngoài Credit Card thì phải thay đổi trực tiếp mã nguồn, vì phương thức này
+     * chỉ dành có Credit Card
      */
     String convertToRequestPayload(CreditCard card, int amount, String contents) {
         Map<String, Object> transaction = new MyMap();
@@ -49,6 +52,7 @@ public class InterbankPayloadConverter {
 
     /**
      * Read the response from interbank server
+     * 
      * @param responseText
      * @return
      */
@@ -97,7 +101,9 @@ public class InterbankPayloadConverter {
     }
 
     /**
-     * Convert response from interbank server as JSON-formatted String into a proper Map
+     * Convert response from interbank server as JSON-formatted String into a proper
+     * Map
+     * 
      * @param responseText
      * @return
      */
@@ -113,7 +119,8 @@ public class InterbankPayloadConverter {
     }
 
     /**
-     * Return a {@link String String} that represents the current time in the format of yyyy-MM-dd HH:mm:ss.
+     * Return a {@link String String} that represents the current time in the format
+     * of yyyy-MM-dd HH:mm:ss.
      *
      * @author hieudm
      * @return the current time as {@link String String}.

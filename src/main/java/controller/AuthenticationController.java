@@ -29,17 +29,24 @@ public class AuthenticationController extends BaseController {
         }
     }
 
+    /**
+     * Vi phạm SRP: Phương thức getMainUser không liên quan đến các phương thức khác
+     * trong class, nên tách vào trong 1 class riềng
+     */
     public User getMainUser() throws ExpiredSessionException {
-        if (SessionInformation.mainUser == null || SessionInformation.expiredTime == null || SessionInformation.expiredTime.isBefore(LocalDateTime.now())) {
+        if (SessionInformation.mainUser == null || SessionInformation.expiredTime == null
+                || SessionInformation.expiredTime.isBefore(LocalDateTime.now())) {
             logout();
             throw new ExpiredSessionException();
-        } else return SessionInformation.mainUser.cloneInformation();
+        } else
+            return SessionInformation.mainUser.cloneInformation();
     }
 
     public void login(String email, String password) throws Exception {
         try {
             User user = new UserDAO().authenticate(email, md5(password));
-            if (Objects.isNull(user)) throw new FailLoginException();
+            if (Objects.isNull(user))
+                throw new FailLoginException();
             SessionInformation.mainUser = user;
             SessionInformation.expiredTime = LocalDateTime.now().plusHours(24);
         } catch (SQLException ex) {
@@ -51,6 +58,15 @@ public class AuthenticationController extends BaseController {
         SessionInformation.mainUser = null;
         SessionInformation.expiredTime = null;
     }
+
+    /**
+     * Trong tương lai, khi muốn sử dụng một thuật toán khác để mã hóa mật khẩu
+     * thì sẽ cần sửa đổi lớp controller
+     * => Vi phạm nguyên tắc mở đóng.
+     * => Giải pháp: Tạo ra một lớp trừu tượng cho các thuật toán mã hóa. Các lớp kế
+     * thừa sẽ thực thi thuật toán
+     * mã hóa cụ thể
+     */
 
     /**
      * Return a {@link String String} that represents the cipher text

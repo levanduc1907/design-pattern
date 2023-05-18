@@ -12,6 +12,10 @@ import entity.payment.PaymentTransaction;
  * @author hieud
  * 
  */
+
+ /**
+ *Vi phạm DIP: Phụ thuộc vào CreditCard là lớp chi tiết
+ */
 public interface InterbankInterface {
 
 	/**

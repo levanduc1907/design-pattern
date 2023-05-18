@@ -14,6 +14,9 @@ import java.util.List;
  */
 public class MediaDAO {
 
+    /**
+     *Vi phạm LSP: 3 class BookDAO, CDDAO, DVDDAO không thể lấy được tất cả các Book, CD, DVD
+     */
     public List getAllMedia() throws SQLException {
         Statement stm = AIMSDB.getConnection().createStatement();
         ResultSet res = stm.executeQuery("select * from Media");
