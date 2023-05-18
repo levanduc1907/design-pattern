@@ -18,6 +18,7 @@ import java.util.Objects;
 /**
  * @author
  */
+//SRP AuthenticationController thực hiện một lúc nhiều method nên tách riêng một class UserController chứa các phương thức login(), logout(), getMainUser(),...
 public class AuthenticationController extends BaseController {
 
     public boolean isAnonymousSession() {
