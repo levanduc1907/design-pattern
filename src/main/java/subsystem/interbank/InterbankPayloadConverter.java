@@ -22,6 +22,10 @@ public class InterbankPayloadConverter {
      * @param contents
      * @return
      */
+
+    /**
+	 * Vi phạm OCP: Trong tương lai, nếu có thêm các phương thức thanh toán khác ngoài Credit Card thì phải thay đổi trực tiếp mã nguồn, vì phương thức này chỉ dành có Credit Card
+     */
     String convertToRequestPayload(CreditCard card, int amount, String contents) {
         Map<String, Object> transaction = new MyMap();
 
