@@ -26,6 +26,9 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 	protected Hashtable<String, String> messages;
 	private BaseController bController;
 
+/**
+ * Các phương thức ScreenHandler là một template method có 2 nhiệm vụ chính là setupData và setupFunctionality
+ */
 	protected BaseScreenHandler(Stage stage, String screenPath) throws IOException {
 		super(screenPath);
 		this.stage = stage;

@@ -6,6 +6,9 @@ import entity.user.User;
 import java.time.LocalDateTime;
 
 /**
+ * Sửa để áp dụng singleton ở đây
+ */
+/**
  * @author
  */
 public class SessionInformation {

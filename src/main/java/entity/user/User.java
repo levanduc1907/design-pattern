@@ -1,5 +1,8 @@
 package entity.user;
 
+/**
+ * Lớp User có thể sử dụng singleton do chỉ có 1 người dùng trong 1 phiên
+ */
 public class User {
     
     private int id;
