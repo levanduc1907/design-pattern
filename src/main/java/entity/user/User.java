@@ -1,26 +1,31 @@
 package entity.user;
 
-/**
- * Lớp User có thể sử dụng singleton do chỉ có 1 người dùng trong 1 phiên
- */
 public class User {
-    
+    private static User instance;
+
     private int id;
     private String name;
     private String email;
     private String address;
     private String phone;
 
-    public User(int id, String name, String email, String address, String phone) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.address = address;
-        this.phone = phone;
+    private User(){
+
+    }
+
+    public static User getInstance(){
+        if(instance == null){
+            instance = new User();
+        }
+        return instance;
+    } 
+
+    public static void resetInstance(){
+        instance = null;
     }
 
     public User cloneInformation() {
-        return new User(this.id, this.name, this.email, this.address, this.phone);
+        return user;
     }
     
     // override toString method
@@ -35,6 +40,14 @@ public class User {
     }
 
     // getter and setter
+    public int getId(){
+        return this.id;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
     public String getName() {
         return this.name;
     }

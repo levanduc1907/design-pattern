@@ -12,8 +12,24 @@ import java.time.LocalDateTime;
  * @author
  */
 public class SessionInformation {
-    public static User mainUser;
-    public static Cart cartInstance = new Cart();
-    public static LocalDateTime expiredTime;
+    private static User mainUser = User.getInstance();
+    private static Cart cartInstance = Cart.getInstance();
+    private static LocalDateTime expiredTime;
+
+    public static User getMainUser(){
+        return mainUser;
+    }
+
+    public static Cart getCartInstance(){
+        return cartInstance;
+    }
+
+    public static LocalDateTime getExpiredTime(){
+        return expiredTime;
+    }
+
+    public static void setExpiredTime(LocalDateTime expiredTime){
+        this.expiredTime = expiredTime;
+    }
 
 }

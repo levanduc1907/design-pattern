@@ -29,9 +29,34 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 /**
  * Các phương thức ScreenHandler là một template method có 2 nhiệm vụ chính là setupData và setupFunctionality
  */
-	protected BaseScreenHandler(Stage stage, String screenPath) throws IOException {
+	protected BaseScreenHandler(Stage stage, String screenPath, Object data) throws IOException {
 		super(screenPath);
 		this.stage = stage;
+		try {
+			initScreen(data);
+		} catch (IOException ex) {
+			LOGGER.info(ex.getMessage());
+			PopupScreen.error("Error when loading resources.");
+		} catch (Exception ex) {
+			LOGGER.info(ex.getMessage());
+			PopupScreen.error(ex.getMessage());
+		}
+	}
+
+	/**
+	 * Template method
+	 */
+	protected void initScreen(Object data){
+		setupData(data);
+		setupFunctionality();
+	}
+
+	protected void setupData(Object data) throws Exception{
+		return;
+	}
+
+	protected void setupFunctionality() throws Exception{
+		return;
 	}
 
 	public void setPreviousScreen(BaseScreenHandler prev) {

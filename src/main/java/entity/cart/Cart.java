@@ -9,20 +9,24 @@ import entity.media.Media;
 
 public class Cart {
     
+    private static Cart instance;
+
     private List<CartItem> lstCartItem;
 
-    public Cart() {
+    private Cart() {
         lstCartItem = new ArrayList<>();
     }
 
-    /**
-     * Cart có thể sửa lại theo mẫu singleton vì chỉ có duy nhất 1 giỏ hàng.
-     * public class Cart{
-     *      private static Cart cart = new Cart();
-     *      private Cart(){...}
-     *      public Cart getCart(){ return cart; }
-     * }
-     */
+    public static Cart getInstance(){
+        if(instance == null){
+            instance = new Cart();
+        }
+        return instance;
+    }
+
+    public static void resetInstance(){
+        instance = null;
+    }
 
     public void addCartMedia(CartItem cm){
         lstCartItem.add(cm);

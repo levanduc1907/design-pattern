@@ -12,7 +12,7 @@ public class CartItem {
 
     }
 
-    public CartItem(Media media, Cart cart, int quantity, int price) {
+    public CartItem(Media media, int quantity, int price) {
         this.media = media;
         this.quantity = quantity;
         this.price = price;
