@@ -13,20 +13,18 @@ import java.util.List;
  * @author
  */
 public class MediaDAO {
+    protected MediaCreator mediaCreator;
+
+    public MediaDAO(){
+        mediaCreator = new MediaCreator();
+    }
 
     public List getAllMedia() throws SQLException {
         Statement stm = AIMSDB.getConnection().createStatement();
         ResultSet res = stm.executeQuery("select * from Media");
         ArrayList medium = new ArrayList<>();
         while (res.next()) {
-            Media media = new Media(
-                    res.getInt("id"),
-                    res.getString("title"),
-                    res.getInt("quantity"),
-                    res.getString("category"),
-                    res.getString("imageUrl"),
-                    res.getInt("price"),
-                    res.getString("type"));
+            Media media = mediaCreator.createMedia(res);
             medium.add(media);
         }
         return medium;
@@ -38,14 +36,7 @@ public class MediaDAO {
         ResultSet res = stm.executeQuery(sql);
 
         if (res.next()) {
-            return new Media(
-                    res.getInt("id"),
-                    res.getString("title"),
-                    res.getInt("quantity"),
-                    res.getString("category"),
-                    res.getString("imageUrl"),
-                    res.getInt("price"),
-                    res.getString("type"));
+            return mediaCreator.createMedia(res);
         }
         return null;
     }

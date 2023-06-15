@@ -13,6 +13,10 @@ import java.util.Date;
  */
 public class DVDDAO extends MediaDAO {
 
+    public DVDDAO(){
+        mediaCreator = new DVDCreator();
+    }
+
     @Override
     public Media getMediaById(int id) throws SQLException {
         String sql = "SELECT * FROM "+
@@ -22,25 +26,7 @@ public class DVDDAO extends MediaDAO {
                 "where Media.id = " + id + ";";
         ResultSet res = AIMSDB.getConnection().createStatement().executeQuery(sql);
         if(res.next()) {
-
-            // from media table
-            String title = "";
-            String type = res.getString("type");
-            int price = res.getInt("price");
-            String category = res.getString("category");
-            int quantity = res.getInt("quantity");
-
-            // from DVD table
-            String discType = res.getString("discType");
-            String director = res.getString("director");
-            int runtime = res.getInt("runtime");
-            String studio = res.getString("studio");
-            String subtitles = res.getString("subtitle");
-            Date releasedDate = res.getDate("releasedDate");
-            String filmType = res.getString("filmType");
-
-            return new DVD(id, title, category, price, quantity, type, discType, director, runtime, studio, subtitles, releasedDate, filmType);
-
+            return mediaCreator.createMedia(res);
         } else {
             throw new SQLException();
         }

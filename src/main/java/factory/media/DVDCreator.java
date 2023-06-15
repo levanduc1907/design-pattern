@@ -6,13 +6,23 @@ package factory.media;
 public class DVDCreator extends MediaCreator {
 
     @Override
-    protected Media createMedia(){
-        return new DVD();
-    }
+    protected Media createMedia(ResultSet res){
+        // from media table
+        int id = res.getInt("id");
+        String title = "";
+        String type = res.getString("type");
+        int price = res.getInt("price");
+        String category = res.getString("category");
+        int quantity = res.getInt("quantity");
 
-    protected Media createMedia(int id, String title, String category, int price, int quantity, String type, String discType,
-            String director, int runtime, String studio, String subtitles, Date releasedDate, String filmType){
-                return new DVD(id, title, category, price, quantity, type, discType, director, runtime, studio, subtitles, releasedDate, filmType);
-            }
-    
+        // from DVD table
+        String discType = res.getString("discType");
+        String director = res.getString("director");
+        int runtime = res.getInt("runtime");
+        String studio = res.getString("studio");
+        String subtitles = res.getString("subtitle");
+        Date releasedDate = res.getDate("releasedDate");
+        String filmType = res.getString("filmType");
+        return new DVD(id, title, type, price, category, quantity, discType, director, runtime, studio, subtitles, releasedDate, filmType);
+    }
 }

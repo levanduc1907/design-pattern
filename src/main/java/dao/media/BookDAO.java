@@ -14,6 +14,10 @@ import java.util.Date;
  */
 public class BookDAO extends MediaDAO {
 
+    public BookDAO(){
+        mediaCreator = new BookCreator();
+    }
+
     @Override
     public Media getMediaById(int id) throws SQLException {
         String sql = "SELECT * FROM "+
@@ -24,25 +28,7 @@ public class BookDAO extends MediaDAO {
         Statement stm = AIMSDB.getConnection().createStatement();
         ResultSet res = stm.executeQuery(sql);
         if(res.next()) {
-
-            // from Media table
-            String title = "";
-            String type = res.getString("type");
-            int price = res.getInt("price");
-            String category = res.getString("category");
-            int quantity = res.getInt("quantity");
-
-            // from Book table
-            String author = res.getString("author");
-            String coverType = res.getString("coverType");
-            String publisher = res.getString("publisher");
-            Date publishDate = res.getDate("publishDate");
-            int numOfPages = res.getInt("numOfPages");
-            String language = res.getString("language");
-            String bookCategory = res.getString("bookCategory");
-
-            return new Book(id, title, category, price, quantity, type,
-                    author, coverType, publisher, publishDate, numOfPages, language, bookCategory);
+            return mediaCreator.createMedia(res);
 
         } else {
             throw new SQLException();
