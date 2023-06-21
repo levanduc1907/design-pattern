@@ -13,22 +13,4 @@ import java.util.Date;
  */
 public class DVDDAO extends MediaDAO {
 
-    public DVDDAO(){
-        mediaCreator = new DVDCreator();
-    }
-
-    @Override
-    public Media getMediaById(int id) throws SQLException {
-        String sql = "SELECT * FROM "+
-                "aims.DVD " +
-                "INNER JOIN aims.Media " +
-                "ON Media.id = DVD.id " +
-                "where Media.id = " + id + ";";
-        ResultSet res = AIMSDB.getConnection().createStatement().executeQuery(sql);
-        if(res.next()) {
-            return mediaCreator.createMedia(res);
-        } else {
-            throw new SQLException();
-        }
-    }
 }

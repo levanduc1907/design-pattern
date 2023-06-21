@@ -3,26 +3,40 @@ package factory.media;
 /**
  * @author
  */
-public class DVDCreator extends MediaCreator {
+public class DVDCreator {
 
-    @Override
-    protected Media createMedia(ResultSet res){
-        // from media table
-        int id = res.getInt("id");
-        String title = "";
-        String type = res.getString("type");
-        int price = res.getInt("price");
-        String category = res.getString("category");
-        int quantity = res.getInt("quantity");
+  protected Media createMedia(Media parentMedia) {
+    // from DVD table
+    String sql = "SELECT * FROM DVD where id = " + parentMedia.getId() + ";";
+    Statement stm = AIMSDB.getConnection().createStatement();
+    ResultSet res = stm.executeQuery(sql);
 
-        // from DVD table
-        String discType = res.getString("discType");
-        String director = res.getString("director");
-        int runtime = res.getInt("runtime");
-        String studio = res.getString("studio");
-        String subtitles = res.getString("subtitle");
-        Date releasedDate = res.getDate("releasedDate");
-        String filmType = res.getString("filmType");
-        return new DVD(id, title, type, price, category, quantity, discType, director, runtime, studio, subtitles, releasedDate, filmType);
+    DVD dvd = null;
+    if (res.next()) {
+      String discType = res.getString("discType");
+      String director = res.getString("director");
+      int runtime = res.getInt("runtime");
+      String studio = res.getString("studio");
+      String subtitles = res.getString("subtitle");
+      Date releasedDate = res.getDate("releasedDate");
+      String filmType = res.getString("filmType");
+      dvd =
+        new DVD(
+          parentMedia.getId(),
+          parentMedia.getTitle(),
+          parentMedia.getCategory(),
+          parentMedia.getPrice(),
+          parentMedia.getQuantity(),
+          parentMedia.getType(),
+          discType,
+          director,
+          runtime,
+          studio,
+          subtitles,
+          releasedDate,
+          filmType
+        );
     }
+    return dvd;
+  }
 }

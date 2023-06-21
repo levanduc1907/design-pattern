@@ -14,24 +14,4 @@ import java.util.Date;
  */
 public class BookDAO extends MediaDAO {
 
-    public BookDAO(){
-        mediaCreator = new BookCreator();
-    }
-
-    @Override
-    public Media getMediaById(int id) throws SQLException {
-        String sql = "SELECT * FROM "+
-                "aims.Book " +
-                "INNER JOIN aims.Media " +
-                "ON Media.id = Book.id " +
-                "where Media.id = " + id + ";";
-        Statement stm = AIMSDB.getConnection().createStatement();
-        ResultSet res = stm.executeQuery(sql);
-        if(res.next()) {
-            return mediaCreator.createMedia(res);
-
-        } else {
-            throw new SQLException();
-        }
-    }
 }
