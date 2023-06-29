@@ -1,6 +1,6 @@
 package entity.payment;
 
-import strategy.payment.PaymentStrategy;
+import strategy.payment.PayStrategy;
 
 /**
  * @author
@@ -12,9 +12,9 @@ public class CreditCard extends PaymentType {
     private String dateExpired;
     protected int cvvCode;
 
-    public CreditCard(PaymentStrategy paymentStrategy, String cardCode, String owner, String dateExpired, int cvvCode) {
-        super(paymentStrategy);
-        this.paymentStrategy = paymentStrategy;
+    public CreditCard(PayStrategy payStrategy, String cardCode, String owner, String dateExpired, int cvvCode) {
+        super(payStrategy);
+        this.payStrategy = payStrategy;
         this.cardCode = cardCode;
         this.owner = owner;
         this.dateExpired = dateExpired;

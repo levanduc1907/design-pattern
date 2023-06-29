@@ -11,20 +11,23 @@ public class DeliveryInfo {
     protected String address;
     protected String shippingInstructions;
     protected DistanceCalculator distanceCalculator;
+    protected FeeCalculateStrategy feeCalculateStrategy;
 
-    public DeliveryInfo(String name, String phone, String province, String address, String shippingInstructions, DistanceCalculator distanceCalculator) {
+    public DeliveryInfo(String name, String phone, String province, String address, String shippingInstructions, DistanceCalculator distanceCalculator, FeeCalculateStrategy feeCalculateStrategy) {
         this.name = name;
         this.phone = phone;
         this.province = province;
         this.address = address;
         this.shippingInstructions = shippingInstructions;
         this.distanceCalculator = distanceCalculator;
+        this.feeCalculateStrategy = feeCalculateStrategy;
     }
 
-    public int calculateShippingFee(Order order) {
-        int distance = distanceCalculator.calculateDistance(address, province);
-        return (int) (distance * 1.2);
+    public int calculateShippingFee() {
+        return feeCalculateStrategy.calculateShippingFee(distanceCalculator, address, province);
     }
+
+    // Getter, setter cho feeCalculateStrategy
 
     public String getName() {
         return name;

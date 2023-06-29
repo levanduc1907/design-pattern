@@ -1,19 +1,19 @@
 package entity.payment;
 
-import strategy.payment.PaymentStrategy;
+import strategy.payment.PayStrategy;
 
 public class PaymentType{
-    protected PaymentStrategy paymentStrategy;
+    protected PayStrategy payStrategy;
 
-    public PaymentType(PaymentStrategy paymentStrategy){
-        this.paymentStrategy = paymentStrategy;
+    public PaymentType(PayStrategy payStrategy){
+        this.payStrategy = payStrategy;
     }
 
     protected void pay(){
-        paymentStrategy.pay();
+        payStrategy.pay();
     }
 
-    protected void setPaymentStrategy(PaymentStrategy paymentStrategy){
-        this.paymentStrategy = paymentStrategy;
+    protected void setPayStrategy(PayStrategy payStrategy){
+        this.payStrategy = payStrategy;
     }
 }

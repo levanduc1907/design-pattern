@@ -1,6 +1,6 @@
 package strategy.payment;
 
-public abstract class PaymentStrategy{
+public abstract class PayStrategy{
     protected void pay(){
         
     }
