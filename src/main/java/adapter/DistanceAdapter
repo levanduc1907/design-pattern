@@ -1,0 +1,16 @@
+package adapter;
+
+/**
+ * @author
+ */
+public class DistanceAdapter extends DistanceCalculator {
+    private AltDistanceCalculator altDistanceCalculator;
+
+    public DistanceAdapter(AltDistanceCalculator altDistanceCalculator){
+        this.altDistanceCalculator = altDistanceCalculator;
+    }
+
+    public int calculateDistance(string address, string province){
+        altDistanceCalculator.calculateDistance(address + province);
+    }
+}
